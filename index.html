@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Instagram Searcher</title>
+  <!-- styles -->
+  <link href="http://kristopolous.github.io/BOOTSTRA.386/assets/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href="main.css" rel="stylesheet" media="screen">
+</head>
+  <body>
+      <!-- start of app, controller -->
+      <div ng-controller="instaController" ng-app='instaApp' ng-model="initialText">
+        <h1>Instagram Tag Search 386</h1>
+        <!-- <img src="instagram.png"><br> -->
+        <form role="form" class="instaForm" ng-submit="submit()">
+          <div class="form-group">
+            <br>
+            <input type="text" name="instaInput" ng-model="instaData.tag" placeholder="Enter a tag ..." autofocus required>
+          </div>
+          <button type="submit" class="btn btn-primary btn-sm">Submit</button>
+          <span ng-if="submitted"><button class="btn btn-success btn-sm" ng-click="reset()">Clear</button></span>
+        </form>
+        <br>
+        <!-- message for user -->
+        <h3>{{message}}</h3>
+        <br>
+        <!-- add images -->
+        <ul>
+          <li class="images" ng-if="submitted" ng-repeat="image in images">
+            <a href="{{image.link}}">{{image.caption.text}}</a>
+          </li>
+        </ul>
+        </div> <!-- end of app, controller -->
+      </div>
+    <!-- scripts -->
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="http://kristopolous.github.io/BOOTSTRA.386/assets/js/bootstrap-386.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js" type="text/javascript"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.18/angular-animate.min.js"></script>
+    <script src="main.js" type="text/javascript"></script>
+  </body>
+</html>
+
+
